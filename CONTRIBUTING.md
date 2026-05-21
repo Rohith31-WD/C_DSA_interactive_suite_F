@@ -9,8 +9,7 @@ Thank you for taking the time to contribute! This project is open to learners, s
 - [Code of Conduct](#code-of-conduct)
 - [Getting Started](#getting-started)
 - [How to Contribute](#how-to-contribute)
-- [Branch Naming Convention](#branch-naming-convention)
-- [Commit Message Guidelines](#commit-message-guidelines)
+- [commit and Branch Naming Convention](#commit-and-branch-naming-convention)
 - [Coding Standards](#coding-standards)
 - [Adding a New Module](#adding-a-new-module)
 - [Testing](#testing)
@@ -22,7 +21,7 @@ Thank you for taking the time to contribute! This project is open to learners, s
 ## Code of Conduct
 
 <!-- Add your code of conduct or link to a CODE_OF_CONDUCT.md -->
-Be civil and respectful, thats it, no more demands, just dont be sexist or racist and you are good. Also dont spam "any updates" in the PR thread, wait for 2-3 days before a follow up.
+Be civil and respectful, thats it, no more demands, just dont be sexist or racist and you are good. Also dont spam "any updates" in the PR thread, wait for 2-3 days before a follow up. If you have any technical or conceptual doubts, dont ask it in a Issue or PR thread. There is a special discord server I have created for that purpose. Link -     https://discord.gg/MWv949G8h
 
 ---
 
@@ -31,6 +30,10 @@ Be civil and respectful, thats it, no more demands, just dont be sexist or racis
 ### Note for SSOC contributors
 
 This project is Linux native. Which means it is made, maintained on Linux and works the best on Linux, however, you can definitely develop and run/use this application on windows through WSL(Windows Subsystem for Linux). WSL will work in VScode too so you can rest assured, just be familiar with WSL before contributing to this project. You can also use a VM, but WSL is sufficient as per the project requirements
+
+### AI usage policy
+
+I am not against usage of AI, you can use AI, but you do the thinking part, let AI do the typing part, thats it. You dont let AI think for you, contruct a PR for you. If you cannot answer questions about your code and its utility, your PR wont be merged. As simple as that
 
 ### Prerequisites
 
@@ -77,6 +80,17 @@ Please check the [Issues](https://github.com/darshan2456/C_DSA_interactive_suite
 
 ## Branch Naming Convention
 
+Use clear, concise commit messages in the following form:
+
+```
+feat: Add AVL tree insertion with rotation logic
+fix: Fix memory leak in DLL delete_node
+refactor: Refactor hash table to use safe_input_int API
+docs: Fix typo in README.md
+```
+
+Avoid vague messages like `fix stuff` or `update code`.
+
 ```
 feature/<short-description>      # for new features or modules
 fix/<short-description>          # for bug fixes
@@ -90,26 +104,11 @@ Example: `feature/avl-tree`, `fix/bst-delete-edge-case`
 
 ---
 
-## Commit Message Guidelines
-
-Use clear, concise commit messages in the following form:
-
-```
-feat: Add AVL tree insertion with rotation logic
-fix: Fix memory leak in DLL delete_node
-refactor: Refactor hash table to use safe_input_int API
-docs: Fix typo in README.md
-```
-
-Avoid vague messages like `fix stuff` or `update code`.
-
----
-
 ## Coding Standards
 
 This project is written in **C11**. All contributions must follow the existing style:
 
-- Format your code using `.clang-format` before submitting — run `clang-format -i <file>`
+- Format your code using `.clang-format` before submitting — run `make fmt`
 - One `.h` / `.c` pair per logical module — no exceptions
 - No function definitions inside header files
 - Prefix all public functions with the module name (e.g., `bst_insert`, `sll_delete`)

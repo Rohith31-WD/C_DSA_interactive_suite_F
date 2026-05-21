@@ -25,75 +25,6 @@ The codebase is structured as a reusable **DSA core**, with an interactive, cons
 
 ---
 
-## Continuous Integration
-
-[![CI](https://github.com/darshan2456/C_DSA_interactive_suite/actions/workflows/ci.yml/badge.svg)](https://github.com/darshan2456/C_DSA_interactive_suite/actions/workflows/ci.yml)
-
-This project includes a **GitHub Actions CI pipeline** that automatically verifies code correctness and memory safety.
-
-On every push or pull request:
-
-1. A fresh **Ubuntu VM** is allocated
-2. The project is **compiled using GCC**
-3. The complete **unit test suite is executed**
-4. All test binaries are run under **Valgrind** to check for:
-
-   - memory leaks  
-   - invalid reads / writes  
-   - use-after-free errors  
-   - uninitialized memory usage
-
-If any test fails or Valgrind detects a memory error, the CI job fails automatically.
-
-## Project Overview
-
-### Data Structures
-- Singly Linked List (SLL)
-- Doubly Linked List (DLL)
-- Circular Queue (array-based)
-- Stack (array-based / linked-list-based as required)
-- Binary Search Tree (BST)
-- Threaded Binary Tree (TBT)
-
-### Algorithms
-
-#### Expression Processing
-- Infix → Postfix conversion
-- Postfix expression evaluation
-
-#### Searching
-- Linear Search
-- Binary Search
-
-#### Sorting (O(n²) family)
-- Bubble Sort
-- Selection Sort
-- Insertion Sort
-
-#### Advanced Sorting Algorithms
-- Quick sort
-- Merge sort
-
-#### Graph Traversals
-- Breadth-First Search (BFS)
-- Depth-First Search (DFS)
-
-Graph traversals are implemented using:
-- An adjacency list representation
-- An explicit queue for BFS
-- An explicit stack for DFS
-
-Both BFS and DFS are implemented **iteratively** (no recursion).
-
-#### Hashing Algorithms
--Linear Probing
--Separate Chaining
-
-Linear Probing uses modulo arithmetic to wrap-around the hash table/array when last index is full, optimizing resources and using the full array. 
-Separate Chaining uses sll API from the 'data_structures' folder
-
----
-
 ## Build Instructions (Recommended)
 
 This project includes a **Makefile** to simplify building across multiple directories.
@@ -165,6 +96,75 @@ src/hashing/*.c ^
 ```
 
 This mirrors exactly what the Makefile performs.
+
+---
+
+## Continuous Integration
+
+[![CI](https://github.com/darshan2456/C_DSA_interactive_suite/actions/workflows/ci.yml/badge.svg)](https://github.com/darshan2456/C_DSA_interactive_suite/actions/workflows/ci.yml)
+
+This project includes a **GitHub Actions CI pipeline** that automatically verifies code correctness and memory safety.
+
+On every push or pull request:
+
+1. A fresh **Ubuntu VM** is allocated
+2. The project is **compiled using GCC**
+3. The complete **unit test suite is executed**
+4. All test binaries are run under **Valgrind** to check for:
+
+   - memory leaks  
+   - invalid reads / writes  
+   - use-after-free errors  
+   - uninitialized memory usage
+
+If any test fails or Valgrind detects a memory error, the CI job fails automatically.
+
+## Project Overview
+
+### Data Structures
+- Singly Linked List (SLL)
+- Doubly Linked List (DLL)
+- Circular Queue (array-based)
+- Stack (array-based / linked-list-based as required)
+- Binary Search Tree (BST)
+- Threaded Binary Tree (TBT)
+
+### Algorithms
+
+#### Expression Processing
+- Infix → Postfix conversion
+- Postfix expression evaluation
+
+#### Searching
+- Linear Search
+- Binary Search
+
+#### Sorting (O(n²) family)
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+
+#### Advanced Sorting Algorithms
+- Quick sort
+- Merge sort
+
+#### Graph Traversals
+- Breadth-First Search (BFS)
+- Depth-First Search (DFS)
+
+Graph traversals are implemented using:
+- An adjacency list representation
+- An explicit queue for BFS
+- An explicit stack for DFS
+
+Both BFS and DFS are implemented **iteratively** (no recursion).
+
+#### Hashing Algorithms
+-Linear Probing
+-Separate Chaining
+
+Linear Probing uses modulo arithmetic to wrap-around the hash table/array when last index is full, optimizing resources and using the full array. 
+Separate Chaining uses sll API from the 'data_structures' folder
 
 ---
 

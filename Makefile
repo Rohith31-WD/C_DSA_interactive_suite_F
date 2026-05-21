@@ -35,6 +35,9 @@ all: $(TARGET)
 $(TARGET): $(SRCS)
 	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)$(EXE)
 
+fmt:
+	find . \( -name "*.c" -o -name "*.h" \) -not -path "*/build/*" | xargs clang-format -i
+
 clean:
 	$(RM) $(TARGET)$(EXE) test_circ_queue$(EXE) test_bst$(EXE) test_search$(EXE) test_hash_func$(EXE) test_sll$(EXE) test_dll$(EXE) test_array$(EXE) test_stack$(EXE)
 
@@ -43,6 +46,7 @@ valgrind:
 		echo "Running valgrind on $$t..."; \
 		valgrind $(VGFLAGS) ./$$t || exit 1; \
 	done
+
 
 # =========================
 # Test Section
