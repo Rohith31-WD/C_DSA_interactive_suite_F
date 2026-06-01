@@ -126,14 +126,15 @@ If any test fails or Valgrind detects a memory error, the CI job fails automatic
 - Doubly Linked List (DLL)
 - Circular Queue (array-based)
 - Stack (array-based / linked-list-based as required)
-- Binary Search Tree (BST)
+- Binary Search Tree (BST)-recursive
 - Threaded Binary Tree (TBT)
+- Priority Queue(heap based)
 
 ### Algorithms
 
 #### Expression Processing
-- Infix → Postfix conversion
-- Postfix expression evaluation
+- Step-by-step visualization for Infix → Postfix conversion
+- Step-by-step visualization for Postfix expression evaluation
 
 #### Searching
 - Linear Search
@@ -151,13 +152,16 @@ If any test fails or Valgrind detects a memory error, the CI job fails automatic
 #### Graph Traversals
 - Breadth-First Search (BFS)
 - Depth-First Search (DFS)
+- Dijkstra's algorithm
 
 Graph traversals are implemented using:
 - An adjacency list representation
 - An explicit queue for BFS
 - An explicit stack for DFS
+- A priority queue for Dijkstra's shortest path algorithm
 
 Both BFS and DFS are implemented **iteratively** (no recursion).
+
 
 #### Hashing Algorithms
 -Linear Probing
@@ -190,7 +194,7 @@ Separate Chaining uses sll API from the 'data_structures' folder
 
 * BFS: **O(V+E)**
 * DFS: **O(V+E)**
-
+* Dijkstra's Algorithm: **O(V²+E)**
 ---
 
 
@@ -204,6 +208,15 @@ Separate Chaining uses sll API from the 'data_structures' folder
 * DFS uses an explicit stack from the `expression_evaluation` module
 * `visited[]` invariants are strictly enforced
 * Traversals are iterative (non-recursive)
+* Dijkstra's shortest path algorithm for weighted graphs
+* Priority Queue support for graph algorithms
+
+
+### Priority Queue
+
+* Heap-based implementation
+* Efficient insertion and removal operations
+* Reusable component for graph algorithms and future extensions
 
 ---
 
@@ -219,17 +232,20 @@ Separate Chaining uses sll API from the 'data_structures' folder
 
 This is a classic two-phase algorithm implemented with full control over execution flow and state.
 
-* Parantheses checker with a stack to check order of parantheses, not just number.
+* Parantheses checker with validated input handling via safe_input_int() to ensure robust,user validated input and a stack to check order of parantheses, not just number.
 ---
 
 ### Modularity & Header Discipline
 
 The codebase follows strict modular design rules:
-
+* Unified header used in data_structures.
 * One `.h` / `.c` pair per logical module
 * No function definitions inside headers
 * No duplicate symbols across translation units
 * Explicit namespacing via function prefixes
+* C11-compliant code ensuring portable and standard-safe compilation.
+
+
 
 Each directory acts as an independent module, making the system easy to extend, debug, or refactor.
 
