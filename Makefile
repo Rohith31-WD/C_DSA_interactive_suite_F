@@ -138,6 +138,17 @@ AVL_TEST_SRC = \
 	src/utils/safe_input_int.c \
 	tests/test_avl.c
 
+TRIE_TEST_SRC = \
+	src/data_structures/trie.c \
+	src/utils/safe_input_int.c \
+	tests/test_trie.c
+
+
+FLOYD_WARSHALL_TEST_SRC = \
+	src/graph_traversals/floyd_warshall.c \
+	src/utils/safe_input_int.c \
+	tests/test_floyd_warshall.c
+
 GREEDY_BFS_TEST_SRC = \
 	src/graph_traversals/greedy_best_first_search.c \
 	src/graph_traversals/dijkstra.c \
@@ -229,6 +240,15 @@ test_avl:
 	$(CC) $(CFLAGS) $(AVL_TEST_SRC) -o test_avl$(EXE)
 	./test_avl$(EXE)
 
+test_trie:
+	$(CC) $(CFLAGS) $(TRIE_TEST_SRC) -o test_trie$(EXE)
+	./test_trie$(EXE)
+
+
+test_floyd_warshall:
+	$(CC) $(CFLAGS) $(FLOYD_WARSHALL_TEST_SRC) -o test_floyd_warshall$(EXE)
+	./test_floyd_warshall$(EXE)
+
 test_greedy_bfs:
 	$(CC) $(CFLAGS) $(GREEDY_BFS_TEST_SRC) -o test_greedy_bfs$(EXE)
 	./test_greedy_bfs$(EXE)
@@ -240,9 +260,14 @@ test_history_logger:
 TEST_BINS = test_circ_queue test_bst test_search test_hash_func \
             test_sll test_dll test_array test_stack test_tbt \
             test_priority_queue test_scll test_simple_queue \
-            test_deque test_astar test_avl \
-            test_greedy_bfs test_sorting_n2 test_advanced_sorting \
-            test_history_logger
+            test_deque test_astar test_avl test_floyd_warshall \
+            test_greedy_bfs test_kruskal test_sorting_n2 test_advanced_sorting \
+			test_history_logger
+			test_trie
+
+test_kruskal:
+	$(CC) $(CFLAGS) $(KRUSKAL_TEST_SRC) -o test_kruskal$(EXE)
+	./test_kruskal$(EXE)
 
 test: $(TEST_BINS)
 
