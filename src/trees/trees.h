@@ -91,6 +91,7 @@ void      trie_delete(TrieNode *root, const char *word);
 void      trie_free(TrieNode *node);
 void      trie_demo(void);
 
+// For B-Tree
 #define BTREE_MAX_DEGREE 10
 
 typedef struct btreeNode
@@ -108,5 +109,30 @@ void       btree_traverse(const btreeNode* root);
 btreeNode* btree_delete(btreeNode* root, int key, int t);
 void       btree_destroy(btreeNode* root);
 void       btree_demo(void);
+
+// For B+ Tree
+typedef struct BPlusNode {
+    bool is_leaf;
+    int num_keys;
+    int *keys;
+    struct BPlusNode **children;
+    int *values;
+    struct BPlusNode *next;
+    struct BPlusNode *prev;
+} BPlusNode;
+
+typedef struct BPlusTree {
+    BPlusNode *root;
+    int order;
+} BPlusTree;
+
+BPlusTree* bplus_tree_create(int order);
+void       bplus_tree_destroy(BPlusTree* tree);
+bool       bplus_tree_search(BPlusTree* tree, int key, int* value_out);
+bool       bplus_tree_insert(BPlusTree* tree, int key, int value);
+bool       bplus_tree_delete(BPlusTree* tree, int key);
+void       bplus_tree_range_query(BPlusTree* tree, int lower, int upper);
+void       bplus_tree_print(BPlusTree* tree);
+void       bplus_tree_demo(void);
 
 #endif

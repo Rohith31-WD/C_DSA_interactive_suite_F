@@ -250,5 +250,20 @@ $(TEST_DIR)/test_advanced_sorting$(EXE): $(OBJ_DIR)/src/advanced_sorting_algorit
 	@$(call MKDIR_P,$(TEST_DIR))
 	$(CC) $(CFLAGS) $^ -o $@
 
+TEST_BINS = test_circ_queue test_bst test_search test_hash_func \
+            test_sll test_dll test_array test_stack test_tbt \
+            test_priority_queue test_scll test_simple_queue \
+            test_deque test_astar test_avl \
+            test_greedy_bfs test_sorting_n2 test_advanced_sorting \
+            test_history_logger test_shell_sort test_trie test_bplus_tree
+
+test_bplus_tree: $(TEST_DIR)/test_bplus_tree$(EXE)
+	$(TEST_DIR)/test_bplus_tree$(EXE)
+
+$(TEST_DIR)/test_bplus_tree$(EXE): $(OBJ_DIR)/src/trees/bplus_tree.o $(OBJ_DIR)/src/utils/safe_input_int.o tests/test_bplus_tree.c
+	@$(call MKDIR_P,$(TEST_DIR))
+	$(CC) $(CFLAGS) $^ -o $@
+
+test: $(TEST_BINS)
 
 .PHONY: run fmt clean valgrind
