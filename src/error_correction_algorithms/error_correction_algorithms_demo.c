@@ -22,9 +22,10 @@ void error_correction_algorithms_demo(void)
             "\nEnter 7 for Parity Bit"
             "\nEnter 8 for VRC (Sender)"
             "\nEnter 9 for VRC (Receiver verification)"
-            "\nEnter 10 for Hamming Code"
+            "\nEnter 10 for Hamming Code (Sender)"
+            "\nEnter 11 for Hamming Code (Receiver verification)"
             "\nEnter -1 to exit: ",
-            1, 10);
+            1, 11);
 
         if (ECA_status == INPUT_EXIT_SIGNAL)
         {
@@ -75,6 +76,10 @@ void error_correction_algorithms_demo(void)
 
             case 10:
                 hamming_demo();
+                break;
+
+            case 11:
+                hamming_receiver_demo();
                 break;
 
             default:

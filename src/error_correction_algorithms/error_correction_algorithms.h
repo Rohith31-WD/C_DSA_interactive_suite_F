@@ -37,6 +37,7 @@ void parity_bit_demo(void);
 
 /* Hamming Code */
 void hamming_demo(void);
+void hamming_receiver_demo(void);
 
 /* Shared checksum helpers (implemented in checksum.c) */
 void checksum_print_binary(int value, int bits);
