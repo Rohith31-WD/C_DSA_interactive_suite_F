@@ -11,8 +11,9 @@ void searching_algorithms_demo(void)
                                                "\nenter 1 for linear search demo"
                                                "\nenter 2 for binary search"
                                                "\nenter 3 for recursive binary search"
+                                               "\nenter 4 for interpolation search"
                                                "\nenter choice : ",
-                                               1, 3);
+                                               1, 4);
 
         if (searching_algo_status == INPUT_EXIT_SIGNAL)
         {
@@ -33,6 +34,9 @@ void searching_algorithms_demo(void)
                 break;
             case 3:
                 binary_search_recursive_demo();
+                break;
+            case 4:
+                interpolation_search_demo();
                 break;
         }
     }
