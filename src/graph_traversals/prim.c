@@ -131,7 +131,7 @@ int prim_mst(weightedGraph* graph, int start_node)
 void prim_demo(void)
 {
     int edges;
-    int graph_capacity;
+    int graph_capacity = 0;
     int starting_node;
     int input_method;
     weightedGraph* graph = NULL;
