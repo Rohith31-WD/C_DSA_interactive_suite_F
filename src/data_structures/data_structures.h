@@ -10,9 +10,10 @@
  * 2. Binary Search Tree (BST)
  * 3. Circular Queue
  * 4. Doubly Linked List
- * 5. Singly Linked List
- * 6. Threaded Binary Tree (TBT)
- * 7. Priority Queue
+ * 5. Doubly Circular Linked List
+ * 6. Singly Linked List
+ * 7. Threaded Binary Tree (TBT)
+ * 8. Priority Queue
  *
  * Refer to the corresponding section below for structure
  * definitions and function declarations.
@@ -49,6 +50,36 @@ int dll_reverselist(doubly_ll_Node** head_ref);
 int dll_getLength(const doubly_ll_Node* head);
 int dll_insertAtPosition(doubly_ll_Node** head_ref, int value, int position);
 int dll_deleteAtPosition(doubly_ll_Node** head_ref, int position);
+
+// For doubly circular linked list
+// Invariant: when non-empty, tail->next == head and head->prev == tail (the ring closes back);
+// when empty, head == tail == NULL and length == 0. head and tail are both tracked and
+// length is cached so getLength is O(1) and positional inserts need no counting pass.
+typedef struct dcll_Node
+{
+    int data;
+    struct dcll_Node* next;
+    struct dcll_Node* prev;
+} dcll_Node;
+typedef struct dcll
+{
+    dcll_Node* head;
+    dcll_Node* tail;
+    int length;
+} dcll;
+void dcll_init(dcll* list);
+int dcll_insertAtBeginning(dcll* list, int value);
+int dcll_insertAtEnd(dcll* list, int value);
+int dcll_insertAtPosition(dcll* list, int value, int position);
+int dcll_deleteAtBeginning(dcll* list);
+int dcll_deleteAtEnd(dcll* list);
+int dcll_deleteByValue(dcll* list, int value);
+int dcll_deleteAtPosition(dcll* list, int position);
+int dcll_search(const dcll* list, int key);
+int dcll_getLength(const dcll* list);
+void dcll_printlist(const dcll* list);
+void dcll_destroy(dcll* list);
+void dcll_Demo(void);
 
 // For single linked list
 typedef struct Node
